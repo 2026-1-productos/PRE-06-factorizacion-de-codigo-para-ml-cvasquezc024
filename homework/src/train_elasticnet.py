@@ -1,8 +1,11 @@
 #
-# Busque los mejores parametros de un modelo knn para predecir
+# Busque los mejores parametros de un modelo ElasticNet para predecir
 # la calidad del vino usando el dataset de calidad del vino tinto de UCI.
 #
-# Considere diferentes valores para la cantidad de vecinos
+# Consideere los siguentes valores de los hiperparametros y obtenga el
+# mejor modelo.
+# (alpha, l1_ratio):
+#    (0.5, 0.5), (0.2, 0.2), (0.1, 0.1), (0.1, 0.05), (0.3, 0.2)
 #
 
 # importacion de librerias
@@ -23,10 +26,8 @@ save_model(estimator)
 print()
 print(estimator, ":", sep="")
 
-# Metricas de error durante entrenamiento
 mse, mae, r2 = calculate_metrics(x_train, y_train, estimator)
 print_metrics(mse, mae, r2, title="Metricas de entrenamiento:")
 
-# Metricas de error durante testing
 mse, mae, r2 = calculate_metrics(x_test, y_test, estimator)
 print_metrics(mse, mae, r2, title="Metricas de testing:")
